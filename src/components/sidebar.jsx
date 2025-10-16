@@ -1,6 +1,11 @@
 import { Home, Users, Settings } from "lucide-react";
 
-export default function Sidebar({ isSidebarOpen, setSidebarOpen }) {
+export default function Sidebar({
+  isSidebarOpen,
+  setSidebarOpen,
+  isUILight,
+  setUITheme,
+}) {
   return (
     //aside is used normally for sidebars or call-out boxes
     <aside
@@ -46,6 +51,9 @@ export default function Sidebar({ isSidebarOpen, setSidebarOpen }) {
           <Settings size={25} /> {isSidebarOpen && <span>Settings</span>}
         </a>
       </nav>
+      <button onClick={() => setUITheme(!isUILight)}>
+        {isUILight ? "Dark mode" : "Light mode"}
+      </button>
       <button
         onClick={() => setSidebarOpen(!isSidebarOpen)}
         className="p-4 border-t border-gray-800 text-gray-200 hover:text-white"
